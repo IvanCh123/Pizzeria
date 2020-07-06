@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace Pizzeria.Models
 {
-    public class OrdenarModel
+    interface IOrden
     {
+        double CalcularTotal();
     }
 }
