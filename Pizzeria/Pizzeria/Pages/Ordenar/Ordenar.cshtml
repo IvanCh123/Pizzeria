@@ -4,5 +4,127 @@
     ViewData["Title"] = "Ordenar";
 }
 
-<h2>Ordenar</h2>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script src="https://kit.fontawesome.com/8dbd1c7c50.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/css/collapse.css" rel="stylesheet">
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="fb-profile">
+                <div class="row">
+                    <img align="left" class="fb-image-lg" width="1000" height="300" src="~/images/pizza-header.jpg" alt="Pizza header" />
+                </div>
+                <div class="row">
+                    <div class="fb-profile-text">
+                        <div class="col-lg-12">
+                            <h1>Pizzas Navishi</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- /container fluid-->
+
+    <form method="post">
+        <div class="container">
+            <div class="col-lg-12">
+                <div data-spy="scroll" class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#tab_default_1" data-toggle="tab">
+                                    Ordenar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_2" data-toggle="tab">
+                                    Recibo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_3" data-toggle="tab">
+                                    Dirección
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_default_1">
+                                <div class="ingredientes">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                                        Tamaño
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <div class="tamano-pizza">
+                                                        <label><input type="radio" value="none" name="visited" /> Grande</label><br />
+                                                        <label><input type="radio" value="none" name="visited" /> Mediana</label><br />
+                                                        <label><input type="radio" value="none" name="visited" /> Pequeña</label><br />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                                        Coberturas
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                    <input type="checkbox" id="jamon" name="jamon" value="500">
+                                                    <label for="vehicle1"> Jamón CRC500.00</label><br>
+                                                    <input type="checkbox" id="hongos" name="hongos" value="500">
+                                                    <label for="vehicle2"> Hongos CRC500.00</label><br>
+                                                    <input type="checkbox" id="queso-extra" name="queso-extra" value="1000">
+                                                    <label for="vehicle3"> Queso extra CRC1000.00</label><br><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- panel-group -->
+                                </div><!-- container -->
+
+                            </div>
+                            <div class="tab-pane" id="tab_default_2">
+                                <p>
+                                    Hola2
+                                </p>
+                            </div>
+
+                            <div class="tab-pane" id="tab_default_3">
+                                Hola3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    
+
+    <script src="~/js/collapse.js"></script>
+
+</body>
+</html>
 
