@@ -64,7 +64,7 @@ namespace Pizzeria.Helpers
 
         public int ObtenerPrecioTamaño(string tamaño) {
             int precioTamaño = -1;
-
+            tamaño = tamaño.ToLower();
             switch (tamaño) {
                 case "pequeña":
                     precioTamaño = PrecioPequeña;
@@ -84,8 +84,12 @@ namespace Pizzeria.Helpers
 
         public int ObtenerPrecioCobertura(string cobertura) {
             int precio = -1;
+            cobertura = cobertura.ToLower();
             switch (cobertura)
             {
+                case "salsa":
+                    precio = PrecioSalsa;
+                    break;
                 case "hongos":
                     precio = PrecioHongos;
                     break;

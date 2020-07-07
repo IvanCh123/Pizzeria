@@ -130,5 +130,52 @@ namespace PizzeriaTester
 
             Assert.AreEqual(-1, precio);
         }
+
+        //Test de ObtenerPrecioCobertura
+        [TestMethod]
+        public void DadoCoberturaSalsaPequeñaRetonar500()
+        {
+            int precio = Pizza.ObtenerPrecioCobertura("salsa");
+
+            Assert.AreEqual(500, precio);
+        }
+
+        [TestMethod]
+        public void DadoCoberturaJamonPequeñaRetonar1000()
+        {
+            int precio = Pizza.ObtenerPrecioCobertura("jamon");
+
+            Assert.AreEqual(1000, precio);
+        }
+
+        [TestMethod]
+        public void DadoCoberturaPiñaPequeñaRetonar1500()
+        {
+            int precio = Pizza.ObtenerPrecioCobertura("piña");
+
+            Assert.AreEqual(1500, precio);
+        }
+
+        [TestMethod]
+        public void DadoTodasCoberturasRetonarPreciosCorrectos()
+        {
+        string[] coberturas = { "Hongos", "CEbolla", "cHIle", "pePPeroni", "salaMI" };
+        int[] precios = { 500, 500, 500, 1000, 1500 };
+
+
+            for (int index = 0; index < coberturas.Length; index++)
+            {
+                int precio = Pizza.ObtenerPrecioCobertura(coberturas[index]);
+                Assert.AreEqual(precios[index], precio);
+            }
+        }
+
+        [TestMethod]
+        public void DadoCoberturaNoExistenteRetonarNegativo()
+        {
+            int precio = Pizza.ObtenerPrecioCobertura("jamon picante");
+
+            Assert.AreEqual(-1, precio);
+        }
     }
 }
