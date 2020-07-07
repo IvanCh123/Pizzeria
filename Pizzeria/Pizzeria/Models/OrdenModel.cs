@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pizzeria.Models
 {
-    public class OrdenModel : IOrden
+    public class OrdenModel
     {
         public Pizza Pizza = new Pizza();
 
@@ -25,7 +25,7 @@ namespace Pizzeria.Models
 
         public double CalcularTotal()
         {
-            return 0;
+            return Pizza.CalcularTotal();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Pizzeria.Helpers
         public string Tipo { get; set; }
         public double Precio { get; set; }
     }
-    public class Pizza
+    public class Pizza : IPizza
     {
         private const int PrecioHongos = 500;
         private const int PrecioCebolla = 500;
@@ -33,10 +33,9 @@ namespace Pizzeria.Helpers
 
         public void AgregarCobertura(string cobertura, int precio)
         {
-            Cobertura tipoCobertura = new Cobertura { Tipo = cobertura, Precio = precio };
+            Cobertura TipoCobertura = new Cobertura { Tipo = cobertura, Precio = precio };
 
-            if (tipoCobertura != null)
-                Coberturas.Add(tipoCobertura);
+            Coberturas.Add(TipoCobertura);
         }
 
         public void EstablecerCoberturas(string[] coberturas) {
@@ -71,6 +70,19 @@ namespace Pizzeria.Helpers
 
                 AgregarCobertura(tipo, precio);
             }
+        }
+
+        public double CalcularTotal()
+        {
+            double precioTotal = 0;
+
+            foreach (Cobertura Cobertura in Coberturas) {
+                precioTotal += Cobertura.Precio;
+            }
+
+            precioTotal += PrecioEnvio;
+
+            return precioTotal;
         }
     }
 }
