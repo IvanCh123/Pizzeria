@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pizzeria.Helpers;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace PizzeriaTester
 {
@@ -177,5 +178,31 @@ namespace PizzeriaTester
 
             Assert.AreEqual(-1, precio);
         }
+
+        //Test CalcularTotal
+        [TestMethod]
+        public void DadoCoberturasCalcularPrecioTotal()
+        {
+            string[] coberturas = { "queso", "hongos", "jamon" };
+            int[] precios = { 1000, 500, 1000 };
+            int envio = 2000;
+
+
+            Pizza.EstablecerCoberturas(coberturas);
+
+            double totalEsperado = (precios.Sum() * 0.13) + envio;
+            double totalCalculado = Pizza.CalcularTotal();
+
+            Assert.AreEqual(totalEsperado, totalCalculado);
+        }
+
+        [TestMethod]
+        public void DadoNoCoberturasRetornarCero()
+        {
+            double totalCalculado = Pizza.CalcularTotal();
+
+            Assert.AreEqual(0, totalCalculado);
+        }
+
     }
 }

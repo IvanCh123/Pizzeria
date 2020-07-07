@@ -17,7 +17,6 @@ namespace Pizzeria.Helpers
         private const int PrecioGrande = 7000;
 
         private const int PrecioSalsa = 500;
-
         private const int PrecioHongos = 500;
         private const int PrecioCebolla = 500;
         private const int PrecioChile = 500;
@@ -28,6 +27,7 @@ namespace Pizzeria.Helpers
         private const int PrecioSalami = 1500;
 
         private const int PrecioEnvio = 2000;
+        private const double Impuesto = 0.13;
 
         public List<Cobertura> Coberturas = new List<Cobertura>();
 
@@ -126,9 +126,11 @@ namespace Pizzeria.Helpers
             foreach (Cobertura Cobertura in Coberturas) {
                 precioTotal += Cobertura.Precio;
             }
-
-            precioTotal += PrecioEnvio;
-
+            if (precioTotal != 0)
+            {
+                precioTotal = (precioTotal * Impuesto) + PrecioEnvio;
+            }
+            
             return precioTotal;
         }
     }
