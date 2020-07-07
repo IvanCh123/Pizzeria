@@ -97,5 +97,38 @@ namespace PizzeriaTester
             Pizza.EstablecerCoberturas(coberturas);
             Assert.AreEqual(0, Pizza.Coberturas.Count);
         }
+
+        //Test de ObtenerPrecioTamaño
+        [TestMethod]
+        public void DadoTamañoPequeñaRetonar3000()
+        {
+            int precio = Pizza.ObtenerPrecioTamaño("pequeña");
+
+            Assert.AreEqual(3000, precio);
+        }
+
+        [TestMethod]
+        public void DadoTamañoMedianaRetonar5000()
+        {
+            int precio = Pizza.ObtenerPrecioTamaño("mediana");
+
+            Assert.AreEqual(5000, precio);
+        }
+
+        [TestMethod]
+        public void DadoTamañoGrandeRetonar7000()
+        {
+            int precio = Pizza.ObtenerPrecioTamaño("grande");
+
+            Assert.AreEqual(7000, precio);
+        }
+
+        [TestMethod]
+        public void DadoTamañoNoExistenteRetonarNegativo()
+        {
+            int precio = Pizza.ObtenerPrecioTamaño("SUPER GRANDE");
+
+            Assert.AreEqual(-1, precio);
+        }
     }
 }
