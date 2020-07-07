@@ -11,7 +11,6 @@ namespace PizzeriaTester
         private Pizza Pizza = new Pizza();
 
         //Test de EstablecerTamaño
-
         [TestMethod]
         public void DadoTamañoPequeñaEstablecerEsteTamañoYPrecioPequeña()
         {
@@ -60,5 +59,43 @@ namespace PizzeriaTester
             int precio = Pizza.Coberturas[0].Precio;
         }
 
+        //Test de EstablecerCoberturas
+        [TestMethod]
+        public void Dado3CoberturasEstablecerlas()
+        {
+            string[] coberturas = {"queso", "hongos", "jamon"};
+            int[] precios = {1000, 500, 1000};
+
+            Pizza.EstablecerCoberturas(coberturas);
+
+            Assert.AreEqual(3, Pizza.Coberturas.Count);
+
+            for (int index = 0; index < Pizza.Coberturas.Count; index++)
+            {
+                string cobertura = Pizza.Coberturas[index].Tipo;
+                int precio = Pizza.Coberturas[index].Precio;
+
+                Assert.AreEqual(coberturas[index], cobertura);
+                Assert.AreEqual(precios[index], precio);
+            }
+        }
+
+        [TestMethod]
+        public void DadoCoberturaNoExistenteNoAgregarla()
+        {
+            string[] coberturas = { "queso", "EXTRA SUPER JAMON", "jamon" };
+
+            Pizza.EstablecerCoberturas(coberturas);
+            Assert.AreEqual(2, Pizza.Coberturas.Count);
+        }
+
+        [TestMethod]
+        public void DadoNoCoberturaNoGenerar()
+        {
+            string[] coberturas = {};
+
+            Pizza.EstablecerCoberturas(coberturas);
+            Assert.AreEqual(0, Pizza.Coberturas.Count);
+        }
     }
 }

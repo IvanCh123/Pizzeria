@@ -42,20 +42,24 @@ namespace Pizzeria.Helpers
             }
         }
 
+        public void EstablecerCoberturas(string[] coberturas)
+        {
+            foreach (string tipo in coberturas)
+            {
+                int precio = ObtenerPrecioCobertura(tipo);
+
+                if(precio != -1)
+                {
+                    AgregarCobertura(tipo, precio);
+                }
+            }
+        }
+
         public void AgregarCobertura(string cobertura, int precio)
         {
             Cobertura TipoCobertura = new Cobertura { Tipo = cobertura, Precio = precio };
 
             Coberturas.Add(TipoCobertura);
-        }
-
-        public void EstablecerCoberturas(string[] coberturas) {
-            foreach (string tipo in coberturas) {
-
-                int precio = ObtenerPrecioCobertura(tipo);
-
-                AgregarCobertura(tipo, precio);
-            }
         }
 
         public int ObtenerPrecioTamaño(string tamaño) {
@@ -77,6 +81,7 @@ namespace Pizzeria.Helpers
 
             return precioTamaño;
         }
+
         public int ObtenerPrecioCobertura(string cobertura) {
             int precio = -1;
             switch (cobertura)
