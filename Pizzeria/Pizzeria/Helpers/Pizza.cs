@@ -12,23 +12,32 @@ namespace Pizzeria.Helpers
     }
     public class Pizza : IPizza
     {
+        private const int PrecioPequeña = 3000;
+        private const int PrecioMediana = 5000;
+        private const int PrecioGrande = 7000;
+
+        private const int PrecioSalsa = 500;
+
         private const int PrecioHongos = 500;
         private const int PrecioCebolla = 500;
         private const int PrecioChile = 500;
-        private const int PrecioSalami = 1000;
+        private const int PrecioQueso = 1000;
         private const int PrecioJamon = 1000;
         private const int PrecioPepperoni = 1000;
         private const int PrecioPiña = 1500;
-        private const int PrecioQuesoExtra = 1500;
+        private const int PrecioSalami = 1500;
 
         private const int PrecioEnvio = 2000;
 
-        public string Tamaño { get; set; }
         public List<Cobertura> Coberturas { get; set; }
 
         public void EstablecerTamaño(string tamaño)
         {
-            Tamaño = tamaño;
+            int precioTamaño = ObtenerPrecioTamaño(tamaño);
+
+            Cobertura TamañoPizza = new Cobertura { Tipo = tamaño, Precio = precioTamaño };
+
+            Coberturas.Add(TamañoPizza);
         }
 
         public void AgregarCobertura(string cobertura, int precio)
@@ -39,37 +48,64 @@ namespace Pizzeria.Helpers
         }
 
         public void EstablecerCoberturas(string[] coberturas) {
-            int precio = -1;
-            foreach (var tipo in coberturas) {
-                switch (tipo) {
-                    case "hongos":
-                        precio = PrecioHongos;
-                        break;
-                    case "cebolla":
-                        precio = PrecioCebolla;
-                        break;
-                    case "chile":
-                        precio = PrecioChile;
-                        break;
-                    case "salami":
-                        precio = PrecioSalami;
-                        break;
-                    case "jamon":
-                        precio = PrecioJamon;
-                        break;
-                    case "pepperoni":
-                        precio = PrecioPepperoni;
-                        break;
-                    case "piña":
-                        precio = PrecioPiña;
-                        break;
-                    case "queso":
-                        precio = PrecioQuesoExtra;
-                        break;
-                }
+            foreach (string tipo in coberturas) {
+
+                int precio = ObtenerPrecioCobertura(tipo);
 
                 AgregarCobertura(tipo, precio);
             }
+        }
+
+        public int ObtenerPrecioTamaño(string tamaño) {
+            int precioTamaño = -1;
+
+            switch (tamaño) {
+                case "pequeña":
+                    precioTamaño = PrecioPequeña;
+                    break;
+
+                case "mediana":
+                    precioTamaño = PrecioMediana;
+                    break;
+
+                case "grande":
+                    precioTamaño = PrecioGrande;
+                    break;
+            }
+
+            return precioTamaño;
+        }
+        public int ObtenerPrecioCobertura(string cobertura) {
+            int precio = -1;
+            switch (cobertura)
+            {
+                case "hongos":
+                    precio = PrecioHongos;
+                    break;
+                case "cebolla":
+                    precio = PrecioCebolla;
+                    break;
+                case "chile":
+                    precio = PrecioChile;
+                    break;
+                case "salami":
+                    precio = PrecioSalami;
+                    break;
+                case "jamon":
+                    precio = PrecioJamon;
+                    break;
+                case "pepperoni":
+                    precio = PrecioPepperoni;
+                    break;
+                case "piña":
+                    precio = PrecioPiña;
+                    break;
+                case "queso":
+                    precio = PrecioQueso;
+                    break;
+            }
+
+            return precio;
         }
 
         public double CalcularTotal()
