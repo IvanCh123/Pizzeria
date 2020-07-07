@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pizzeria.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,21 @@ namespace Pizzeria.Models
 {
     public class OrdenModel : IOrden
     {
+        public Pizza Pizza = new Pizza();
+
+        public void EstablecerTamaño(string tamaño) {
+            Pizza.EstablecerTamaño(tamaño);
+        }
+
+        public void EstablecerCoberturas(string[] coberturas)
+        {
+            Pizza.EstablecerCoberturas(coberturas);
+        }
+
+        public Pizza RetornarPizza() {
+            return Pizza;
+        }
+
         public double CalcularTotal()
         {
             return 0;

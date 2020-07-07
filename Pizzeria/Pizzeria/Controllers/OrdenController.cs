@@ -10,10 +10,6 @@ namespace Pizzeria.Controllers
     public class OrdenController : Controller
     {
         OrdenModel Orden = new OrdenModel();
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public double CalcularOrden()
         {
