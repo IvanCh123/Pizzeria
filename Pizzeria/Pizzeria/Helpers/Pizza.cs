@@ -8,7 +8,7 @@ namespace Pizzeria.Helpers
     public class Cobertura
     {
         public string Tipo { get; set; }
-        public double Precio { get; set; }
+        public int Precio { get; set; }
     }
     public class Pizza : IPizza
     {
@@ -29,15 +29,17 @@ namespace Pizzeria.Helpers
 
         private const int PrecioEnvio = 2000;
 
-        public List<Cobertura> Coberturas { get; set; }
+        public List<Cobertura> Coberturas = new List<Cobertura>();
 
         public void EstablecerTamaño(string tamaño)
         {
             int precioTamaño = ObtenerPrecioTamaño(tamaño);
 
-            Cobertura TamañoPizza = new Cobertura { Tipo = tamaño, Precio = precioTamaño };
+            if (precioTamaño != -1) {
+                Cobertura TamañoPizza = new Cobertura { Tipo = tamaño, Precio = precioTamaño };
 
-            Coberturas.Add(TamañoPizza);
+                Coberturas.Add(TamañoPizza);
+            }
         }
 
         public void AgregarCobertura(string cobertura, int precio)
