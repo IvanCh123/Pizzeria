@@ -1,37 +1,106 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
-for details on configuring this project to bundle and minify static web assets. */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.6;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.hero {
+    position: relative;
+    height: 60vh;
+    z-index: -2;
+    background: url("https://i.imgur.com/KHX4RUT.jpg") center top no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.overlay {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
+    background: rgba(0,0,0,0.6);
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.main-content {
+    background: #fff;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+section {
+    background: #fff;
+    padding: 4rem 0 7rem;
+}
+
+    section:nth-child(even) {
+        background: #fff;
     }
+
+h2,
+h3 {
+    padding: 2rem 0 0.75rem;
+    font-weight: 700;
+    color: #fff;
+}
+/* ===================================== */
+/* ===== THE INTERESTING STUFF NOW ===== */
+/* ===================================== */
+.navbar {
+    border: none;
+    transition: 0.4s;
+    /* --- navbar sizes --- */
+    /* --- navbar colors --- */
+}
+
+.navbar-brand {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.navbar--size--xl {
+    padding: 4rem 0;
+}
+
+.navbar--size--lg {
+    padding: 2rem 0;
+}
+
+.navbar--size--md {
+    padding: 1rem 0;
+}
+
+.navbar--size--sm {
+    padding: 0;
+}
+
+.navbar--color--white {
+    background: #fff;
+}
+
+.navbar--color--primary {
+    background: #fff;
+}
+
+.navbar--color--secondary {
+    background: rgba(0,0,0,0.2);
+}
+
+.navbar--color--ghost {
+    background: rgba(0,0,0,0.2);
+}
+
+    .navbar--color--ghost .navbar-brand,
+    .navbar--color--ghost .navbar-text,
+    .navbar--color--ghost a {
+        color: #fff;
+    }
+
+.collapse > .navbar-collapse > a{
+    color: white;
+    text-decoration: none;
 }
