@@ -12,3 +12,13 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
+
+
+$("#caja").click(function (e) {
+    if ($("input[name=cobertura]:checked").length == 0) {
+        $("input[name=cobertura]:first").attr("required", "required");
+    } else {
+        $("input[name=cobertura]").removeAttr("required");
+        $("form").submit();
+    }
+});
