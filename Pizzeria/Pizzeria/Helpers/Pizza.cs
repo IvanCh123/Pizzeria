@@ -134,8 +134,5 @@ namespace Pizzeria.Helpers
             return precioTotal;
         }
 
-        public List<Cobertura> RetornarPizza() {
-            return Coberturas;
-        }
     }
 }

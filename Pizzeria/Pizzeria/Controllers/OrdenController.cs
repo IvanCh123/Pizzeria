@@ -22,11 +22,6 @@ namespace Pizzeria.Controllers
             Orden.EstablecerCoberturas(coberturas);
         }
 
-        public List<Cobertura> RetornarPizza()
-        {
-            return Orden.RetornarPizza();
-        }
-
         public double CalcularOrden()
         {
             return Orden.CalcularTotal();
