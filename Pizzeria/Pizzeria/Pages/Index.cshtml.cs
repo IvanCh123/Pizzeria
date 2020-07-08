@@ -8,7 +8,7 @@ namespace Pizzeria.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        public void OnPost()
         {
             Response.Redirect("/Ordenar/Ordenar");
         }

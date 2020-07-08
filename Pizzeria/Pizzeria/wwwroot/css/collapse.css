@@ -2,8 +2,21 @@
 * Does not work properly if "in" is added after "collapse".
 * Get free snippets on bootpen.com
 *******************************/
+
+.textbox {
+    margin-top: 100vmax;
+    background-color: wheat;
+    box-shadow: 0 0 10px 0 #095484;
+}
+
+
+.center {
+    margin: auto;
+    width: 50%;
+}
+
 .panel-group .panel {
-    margin-top: 20px;
+    margin-top: 60px;
     border-radius: 0;
     box-shadow: none;
     border-color: #EEEEEE;
