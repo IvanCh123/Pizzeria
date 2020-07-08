@@ -19,8 +19,9 @@ namespace Pizzeria.Models
             Pizza.EstablecerCoberturas(coberturas);
         }
 
-        public Pizza RetornarPizza() {
-            return Pizza;
+        public List<Cobertura> RetornarPizza()
+        {
+            return Pizza.RetornarPizza();
         }
 
         public double CalcularTotal()

@@ -27,7 +27,7 @@ namespace Pizzeria.Helpers
         private const int PrecioSalami = 1500;
 
         private const int PrecioEnvio = 2000;
-        private const double Impuesto = 0.13;
+        private const double Impuesto = 1.13;
 
         public List<Cobertura> Coberturas = new List<Cobertura>();
 
@@ -132,6 +132,10 @@ namespace Pizzeria.Helpers
             }
             
             return precioTotal;
+        }
+
+        public List<Cobertura> RetornarPizza() {
+            return Coberturas;
         }
     }
 }
