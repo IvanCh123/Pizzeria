@@ -2,16 +2,46 @@
     $("#nextBtn").removeAttr('disabled')
 })
 
+var totalTamaño = 0;
+var totalCobertura = 0;
+
 $('input[type=radio]').change(function () {
+    var tipo = $('input[name=tamaño]:checked', '#regForm').val()
+
+    var precio = $('label[id=precio-' + tipo + ']', '#regForm').html()
+
+    totalTamaño = parseInt(precio.slice(4, precio.length - 3));
+
+    $("#totalActual").html(totalTamaño + totalCobertura)
+
     $("#nextBtn").removeAttr('disabled')
 });
 
 $('input[type=checkbox]').change(function () {
-    if ($('input[type=checkbox]:checked')) {
+
+    var temp = 0;
+    if ($('#regForm input[type="checkbox"]').is(':checked')) {
+
+        $.each($("input[name='cobertura']:checked"), function () {
+
+            var tipo = $(this).val()
+
+            console.log(tipo)
+
+            var precio = $('label[id=precio-' + tipo + ']', '#regForm').html()
+
+            temp += parseInt(precio.slice(4, precio.length - 3))
+        });
+
+
         $("#nextBtn").removeAttr('disabled')
-    } else {
+    } else{
         $("#nextBtn").attr('disabled', 'disabled')
     }
+
+    totalCobertura = temp;
+
+    $("#totalActual").html( (totalTamaño + totalCobertura))
 });
 
 
@@ -44,7 +74,6 @@ function showTab(n) {
 function nextPrev(n) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
   // Hide the current tab:
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:

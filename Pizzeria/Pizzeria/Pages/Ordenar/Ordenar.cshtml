@@ -23,13 +23,21 @@
         <!-- One "tab" for each step in the form: -->
         <div class="tab">
             <h4>Tamaño:</h4>
-            <label><input type="radio" value="grande" name="tamaño" required /> Grande CRC7000.00</label><br />
-            <label><input type="radio" value="mediana" name="tamaño" required /> Mediana CRC5000.00</label><br />
-            <label><input type="radio" value="pequeña" name="tamaño" required /> Pequeña CRC3000.00</label><br />
+            <input type="radio" value="grande" id="grande" name="tamaño" />
+            <label for="grande"> Grande</label>
+            <label for="grande" id="precio-grande"> CRC7000.00</label><br />
+
+            <input type="radio" value="mediana" id="mediana" name="tamaño" />
+            <label for="mediana"> Mediana</label>
+            <label for="mediana" id="precio-mediana"> CRC5000.00</label><br />
+
+            <input type="radio" value="pequeña" id="pequeña" name="tamaño" />
+            <label for="pequeña"> Pequeña</label>
+            <label for="pequeña" id="precio-pequeña"> CRC3000.00</label><br />
         </div>
         <div class="tab">
             <h4>Coberturas:</h4>
-            <input type="checkbox" id="salsa" name="cobertura" value="salsa" required>
+            <input type="checkbox" id="salsa" name="cobertura" value="salsa">
             <label for="salsa"> Salsa </label>
             <label for="salsa" id="precio-salsa"> CRC500.00</label><br>
 
@@ -72,21 +80,21 @@
                 <button type="button" asp-page-handler="Ordenar" id="nextBtn" onclick="nextPrev(1)" disabled>Siguiente</button>
             </div>
         </div>
+
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
             <span class="step"></span>
+        </div>
+
+        <div class="row">
+            <h5>Total actual: <label id="totalActual">0</label></h5>
         </div>
     </form>
 
     @section Scripts{
         <script src="~/js/orden.js"></script>
     }
-
-
-
-
-
 </body>
 </html>
 
