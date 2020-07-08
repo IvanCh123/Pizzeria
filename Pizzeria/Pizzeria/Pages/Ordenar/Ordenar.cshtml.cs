@@ -13,28 +13,19 @@ namespace Pizzeria.Pages.Ordenar
     {
         OrdenController Orden = new OrdenController();
 
-        public double MontoTotal { get; set; }
-        public List<Cobertura> Pizza { get; set; }
-
-
         public void OnGet(){}
 
-        public IActionResult OnPostOrden()
+        public IActionResult OnPostOrdenar()
         {
-            //fetch los datos de la vista
-
             string tamaño = Request.Form["tamaño"];
             string[] coberturas = Request.Form["cobertura"].ToString().Split(',');
 
             Orden.EstablecerTamaño(tamaño);
             Orden.EstablecerCoberturas(coberturas);
 
+            double MontoTotal = Orden.CalcularOrden();
 
-
-            Pizza = Orden.RetornarPizza();
-            MontoTotal = Orden.CalcularOrden();
-
-            return Page();
+            return RedirectToPage("FinalizarOrden", new { PrecioOrden = MontoTotal.ToString() });
         }
     }
 }
