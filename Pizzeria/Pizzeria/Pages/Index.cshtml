@@ -42,15 +42,22 @@
                 <div class="center col-lg-6">
                     <h1>Bienvenido a Navishi's Pizza</h1>
                     <button class="btn btn-outline-primary">Ordenar</button>
+
+                    <div class="row">
+                        @if (Model.Resultado != "")
+                        {
+                            <br />
+                            <h4 style="color:white">@Model.Resultado</h4>
+                        }
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <img src="~/images/me6.png" />
                 </div>
             </div>
-            
+
         </div>
     </form>
-
 </body>
 </html>
 

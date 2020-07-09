@@ -4,5 +4,67 @@
     ViewData["Title"] = "FinalizarOrden";
 }
 
-<h2>FinalizarOrden</h2>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://kit.fontawesome.com/8dbd1c7c50.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link href="~/css/orden.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <form id="regForm" method="post">
+        <h1>Resumen de su orden:</h1>
+        <!-- One "tab" for each step in the form: -->
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>Total:</h4>
+
+                <h5>Pizza: @Model.MontoFinal</h5>
+                <h5>Impuesto: 1.13%</h5>
+                <h5>Envió: 2000</h5>
+
+            </div>
+            <div class="col-lg-6">
+                <h4>Agregue su dirección de entrega:</h4>
+
+                <textarea rows="4" cols="30" id="direccion" name="direccion"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="submit" asp-page-handler="Cancelar" id="cancelar">Cancelar</button>
+                    <button type="submit" asp-page-handler="Finalizar" id="finalizar" disabled>Finalizar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+        </div>
+    </form>
+
+    @section Scripts{
+        <script>
+            $("#direccion").on("keyup", function () {
+                if ($("#direccion").val() != "") {
+                    $("#finalizar").removeAttr('disabled')
+                } else {
+                    $("#finalizar").attr('disabled','disabled')
+                }
+            });
+        </script>
+    }
+</body>
+
+</html>
 
