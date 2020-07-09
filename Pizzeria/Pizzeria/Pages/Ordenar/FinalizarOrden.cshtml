@@ -18,21 +18,21 @@
 </head>
 <body>
     <form id="regForm" method="post">
-        <h1>Resumen de su orden:</h1>
+        <h2>Resumen de su orden:</h2>
         <!-- One "tab" for each step in the form: -->
         <div class="row">
             <div class="col-lg-6">
-                <h4>Total:</h4>
-
-                <h5>Pizza: @Model.MontoFinal</h5>
-                <h5>Impuesto: 1.13%</h5>
-                <h5>Envió: 2000</h5>
+                <h3>Pizza: CRC @Model.MontoActual.00</h3>
+                <h3>Impuesto: 1.13%</h3>
+                <h3>Envio: CRC 2000.00</h3>
+                <br />
+                <h3><strong>Total: CRC @Model.MontoFinal.00</strong></h3>
 
             </div>
             <div class="col-lg-6">
-                <h4>Agregue su dirección de entrega:</h4>
+                <h3>Agregue su dirección de entrega:</h3>
 
-                <textarea rows="4" cols="30" id="direccion" name="direccion"></textarea>
+                <textarea rows="4" cols="30" id="direccion" name="direccion" placeholder="Dirección de entrega"></textarea>
             </div>
         </div>
 

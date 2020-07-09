@@ -19,13 +19,14 @@ namespace Pizzeria.Pages.Ordenar
         {
             string tamaño = Request.Form["tamaño"];
             string[] coberturas = Request.Form["cobertura"].ToString().Split(',');
+            string totalActual = Request.Form["total"];
 
             Orden.EstablecerTamaño(tamaño);
             Orden.EstablecerCoberturas(coberturas);
 
             double MontoTotal = Orden.CalcularOrden();
 
-            return RedirectToPage("FinalizarOrden", new { PrecioOrden = MontoTotal.ToString() });
+            return RedirectToPage("FinalizarOrden", new { PrecioActual = totalActual, PrecioFinal = MontoTotal.ToString() });
         }
     }
 }

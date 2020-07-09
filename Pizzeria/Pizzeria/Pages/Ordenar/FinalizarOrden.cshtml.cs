@@ -5,10 +5,12 @@ namespace Pizzeria.Pages.Ordenar
 {
     public class FinalizarOrdenModel : PageModel
     {
+        public string MontoActual { get; set; }
         public string MontoFinal { get; set; }
-        public void OnGet(string MontoActual, string PrecioOrden)
+        public void OnGet(string PrecioActual, string PrecioFinal)
         {
-            MontoFinal = PrecioOrden;
+            MontoActual = PrecioActual;
+            MontoFinal = PrecioFinal;
         }
 
         public IActionResult OnPostFinalizar()

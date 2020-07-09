@@ -12,7 +12,7 @@ $('input[type=radio]').change(function () {
 
     totalTamaño = parseInt(precio.slice(4, precio.length - 3));
 
-    $("#totalActual").html(totalTamaño + totalCobertura)
+    $("#total").val(totalTamaño + totalCobertura)
 
     $("#nextBtn").removeAttr('disabled')
 });
@@ -41,7 +41,7 @@ $('input[type=checkbox]').change(function () {
 
     totalCobertura = temp;
 
-    $("#totalActual").html( (totalTamaño + totalCobertura))
+    $("#total").val( (totalTamaño + totalCobertura))
 });
 
 
