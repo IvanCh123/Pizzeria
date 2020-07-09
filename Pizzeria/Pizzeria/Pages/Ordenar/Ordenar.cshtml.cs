@@ -19,7 +19,7 @@ namespace Pizzeria.Pages.Ordenar
         {
             string tamaño = Request.Form["tamaño"];
             string[] coberturas = Request.Form["cobertura"].ToString().Split(',');
-            string totalActual = Request.Form["total"];
+            string totalActual = Request.Form["total2"];
 
             Orden.EstablecerTamaño(tamaño);
             Orden.EstablecerCoberturas(coberturas);

@@ -12,7 +12,8 @@ $('input[type=radio]').change(function () {
 
     totalTamaño = parseInt(precio.slice(4, precio.length - 3));
 
-    $("#total").val(totalTamaño + totalCobertura)
+    $("#total").html(totalTamaño + totalCobertura);
+    $("#total2").val(totalTamaño + totalCobertura);
 
     $("#nextBtn").removeAttr('disabled')
 });
@@ -25,8 +26,6 @@ $('input[type=checkbox]').change(function () {
         $.each($("input[name='cobertura']:checked"), function () {
 
             var tipo = $(this).val()
-
-            console.log(tipo)
 
             var precio = $('label[id=precio-' + tipo + ']', '#regForm').html()
 
@@ -41,7 +40,8 @@ $('input[type=checkbox]').change(function () {
 
     totalCobertura = temp;
 
-    $("#total").val( (totalTamaño + totalCobertura))
+    $("#total").html( (totalTamaño + totalCobertura))
+    $("#total2").val( (totalTamaño + totalCobertura))
 });
 
 
